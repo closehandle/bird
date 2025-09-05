@@ -1,10 +1,10 @@
-FROM debian:bookworm
+FROM debian:trixie
 
 RUN apt update && \
     apt full-upgrade -y && \
     apt autoremove --purge -y && \
     apt install ca-certificates curl wget -y && \
-    echo 'deb [signed-by=/usr/share/keyrings/cznic-labs-pkg.gpg] https://pkg.labs.nic.cz/bird2 bookworm main' > /etc/apt/sources.list.d/cznic-labs-bird2.list && \
+    echo 'deb [signed-by=/usr/share/keyrings/cznic-labs-pkg.gpg] https://pkg.labs.nic.cz/bird2 trixie main' > /etc/apt/sources.list.d/cznic-labs-bird2.list && \
     wget -O /usr/share/keyrings/cznic-labs-pkg.gpg https://pkg.labs.nic.cz/gpg && \
     apt update && \
     apt install bird2 -y && \
